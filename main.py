@@ -39,41 +39,43 @@ async def on_ready():
     except Exception as e:
         print(f"❌ Lỗi sync commands: {e}")
 
-
 @bot.tree.command(name="quiz", description="Bắt đầu quiz với 10 câu hỏi ngẫu nhiên")
 async def quiz(interaction: discord.Interaction):
     if len(all_questions) < NUM_QUESTIONS:
-        await interaction.response.send_message("❌ Không đủ câu hỏi để bắt đầu quiz!", ephemeral=True)
+        await interaction.response.send_message(
+            "❌ Không đủ câu hỏi để bắt đầu quiz!", ephemeral=True
+        )
         return
 
-    await interaction.response.send_message(
-        f"🎯 Quiz bắt đầu với {NUM_QUESTIONS} câu hỏi! Bạn có {QUESTION_TIMEOUT} giây cho mỗi câu.\n"
-        f"Trả lời bằng cách gõ **A, B, C, D** hoặc **a, b, c, d** vào chat",
-        ephemeral=False
+    # ✅ Defer the interaction (acknowledge quickly)
+    await interaction.response.defer()
+
+    # Send intro as followup (not response)
+    await interaction.followup.send(
+        f"🎯 Quiz bắt đầu với {NUM_QUESTIONS} câu hỏi! "
+        f"Bạn có {QUESTION_TIMEOUT} giây cho mỗi câu.\n"
+        f"Trả lời bằng cách gõ **A, B, C, D** hoặc **a, b, c, d** vào chat"
     )
 
     selected_questions = random.sample(all_questions, NUM_QUESTIONS)
     score = 0
     user_answers = []
-    correct_answers = []
 
     for i, q in enumerate(selected_questions, 1):
-        # Embed câu hỏi
         embed = discord.Embed(
             title=f"❓ Câu hỏi {i}/{NUM_QUESTIONS}",
             description=q["question"],
             color=discord.Color.blue()
         )
-        options_text = ""
-        for option, text in q["options"].items():
-            options_text += f"**{option}.** {text}\n"
+        options_text = "\n".join(
+            f"**{opt}.** {txt}" for opt, txt in q["options"].items()
+        )
         embed.add_field(name="📋 Các lựa chọn:", value=options_text, inline=False)
         embed.set_footer(text=f"⏰ Thời gian: {QUESTION_TIMEOUT} giây | Gõ A, B, C, D để trả lời")
 
-        # Gửi câu hỏi
-        question_msg = await interaction.channel.send(embed=embed)
+        # Send question
+        await interaction.channel.send(embed=embed)
 
-        # Chờ câu trả lời từ chat
         def check(message):
             return (
                 message.author == interaction.user
@@ -82,7 +84,9 @@ async def quiz(interaction: discord.Interaction):
             )
 
         try:
-            user_message = await bot.wait_for("message", timeout=QUESTION_TIMEOUT, check=check)
+            user_message = await bot.wait_for(
+                "message", timeout=QUESTION_TIMEOUT, check=check
+            )
             user_answer = user_message.content.upper()
         except asyncio.TimeoutError:
             await interaction.channel.send(
@@ -98,7 +102,7 @@ async def quiz(interaction: discord.Interaction):
             })
             continue
 
-        # Lưu câu trả lời
+        # Save answer
         is_correct = user_answer == q["correct_answer"]
         if is_correct:
             score += 1
@@ -111,26 +115,28 @@ async def quiz(interaction: discord.Interaction):
             "is_correct": is_correct
         })
 
-        # Chờ 1 giây trước câu hỏi tiếp theo
         await asyncio.sleep(1)
 
-    # Kết quả cuối cùng
+    # Final result
     percentage = round((score / NUM_QUESTIONS) * 100, 1)
     wrong_count = NUM_QUESTIONS - score
-    
-    # Thông báo kết quả tổng quan
-    result_message = f"🎯 **Kết quả Quiz:**\n"
-    result_message += f"✅ Câu đúng: {score}\n"
-    result_message += f"❌ Câu sai: {wrong_count}\n"
-    result_message += f"📊 Tỷ lệ: {percentage}%\n\n"
-    
-    # Chi tiết từng câu trả lời
-    result_message += "📝 **Chi tiết câu trả lời:**\n"
-    for i, answer in enumerate(user_answers, 1):
-        status = "✅" if answer["is_correct"] else "❌"
-        result_message += f"{status} **Câu {i}:** Bạn chọn {answer['user_answer']}, đáp án đúng là {answer['correct_answer']}\n"
-    
-    await interaction.channel.send(result_message)
+
+    result_message = (
+        f"🎯 **Kết quả Quiz:**\n"
+        f"✅ Câu đúng: {score}\n"
+        f"❌ Câu sai: {wrong_count}\n"
+        f"📊 Tỷ lệ: {percentage}%\n\n"
+        "📝 **Chi tiết câu trả lời:**\n"
+    )
+
+    for i, ans in enumerate(user_answers, 1):
+        status = "✅" if ans["is_correct"] else "❌"
+        result_message += (
+            f"{status} **Câu {i}:** Bạn chọn {ans['user_answer']}, "
+            f"đáp án đúng là {ans['correct_answer']}\n"
+        )
+
+    await interaction.followup.send(result_message)
 
 
 if __name__ == "__main__":
