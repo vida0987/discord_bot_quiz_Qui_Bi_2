@@ -116,18 +116,19 @@ async def quiz(interaction: discord.Interaction):
 
     # Kết quả cuối cùng
     percentage = round((score / NUM_QUESTIONS) * 100, 1)
+    wrong_count = NUM_QUESTIONS - score
     
-    # Thông báo kết quả đơn giản
-    result_message = f"🎯 **Kết quả Quiz:** {score}/{NUM_QUESTIONS} câu đúng ({percentage}%)"
+    # Thông báo kết quả tổng quan
+    result_message = f"🎯 **Kết quả Quiz:**\n"
+    result_message += f"✅ Câu đúng: {score}\n"
+    result_message += f"❌ Câu sai: {wrong_count}\n"
+    result_message += f"📊 Tỷ lệ: {percentage}%\n\n"
     
-    if percentage >= 90:
-        result_message += "\n🏆 Xuất sắc!"
-    elif percentage >= 70:
-        result_message += "\n🎉 Tốt!"
-    elif percentage >= 50:
-        result_message += "\n📚 Khá!"
-    else:
-        result_message += "\n💪 Cần cố gắng thêm!"
+    # Chi tiết từng câu trả lời
+    result_message += "📝 **Chi tiết câu trả lời:**\n"
+    for i, answer in enumerate(user_answers, 1):
+        status = "✅" if answer["is_correct"] else "❌"
+        result_message += f"{status} **Câu {i}:** Bạn chọn {answer['user_answer']}, đáp án đúng là {answer['correct_answer']}\n"
     
     await interaction.channel.send(result_message)
 
