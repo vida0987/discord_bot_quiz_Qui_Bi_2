@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Discord Bot Token
-DISCORD_TOKEN = 'MTQxNzE0MzYyMjQ5ODc4MzM0Mw.GBol5V.J_Mj5ROmKYX1E7X35WyU_NR2SAvxKAV8p88M18'
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Bot configuration
 BOT_PREFIX = '!'

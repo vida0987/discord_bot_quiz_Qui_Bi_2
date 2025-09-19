@@ -7,7 +7,13 @@ import json
 import os
 
 # Config
-TOKEN = 'MTQxNzE0MzYyMjQ5ODc4MzM0Mw.GBol5V.J_Mj5ROmKYX1E7X35WyU_NR2SAvxKAV8p88M18'
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+TOKEN = os.getenv('DISCORD_TOKEN')
 QUESTION_TIMEOUT = 30
 NUM_QUESTIONS = 10
 
@@ -42,13 +48,14 @@ async def quiz(interaction: discord.Interaction):
 
     await interaction.response.send_message(
         f"🎯 Quiz bắt đầu với {NUM_QUESTIONS} câu hỏi! Bạn có {QUESTION_TIMEOUT} giây cho mỗi câu.\n"
-        f"Chọn đáp án bằng cách click emoji 🇦 🇧 🇨 🇩",
+        f"Trả lời bằng cách gõ **A, B, C, D** hoặc **a, b, c, d** vào chat",
         ephemeral=False
     )
 
     selected_questions = random.sample(all_questions, NUM_QUESTIONS)
     score = 0
-    wrong_answers = []
+    user_answers = []
+    correct_answers = []
 
     for i, q in enumerate(selected_questions, 1):
         # Embed câu hỏi
@@ -59,59 +66,82 @@ async def quiz(interaction: discord.Interaction):
         )
         options_text = ""
         for option, text in q["options"].items():
-            emoji = {"A": "🇦", "B": "🇧", "C": "🇨", "D": "🇩"}[option]
-            options_text += f"{emoji} **{option}.** {text}\n"
+            options_text += f"**{option}.** {text}\n"
         embed.add_field(name="📋 Các lựa chọn:", value=options_text, inline=False)
-        embed.set_footer(text=f"⏰ Thời gian: {QUESTION_TIMEOUT} giây | 🎯 Điểm hiện tại: {score}")
+        embed.set_footer(text=f"⏰ Thời gian: {QUESTION_TIMEOUT} giây | Gõ A, B, C, D để trả lời")
 
         # Gửi câu hỏi
         question_msg = await interaction.channel.send(embed=embed)
 
-        # Thêm reactions
-        for emoji in ["🇦", "🇧", "🇨", "🇩"]:
-            await question_msg.add_reaction(emoji)
-
-        # Chờ câu trả lời
-        def check(reaction, user):
+        # Chờ câu trả lời từ chat
+        def check(message):
             return (
-                user == interaction.user
-                and str(reaction.emoji) in ["🇦", "🇧", "🇨", "🇩"]
-                and reaction.message.id == question_msg.id
+                message.author == interaction.user
+                and message.channel == interaction.channel
+                and message.content.upper() in ["A", "B", "C", "D"]
             )
 
         try:
-            reaction, user = await bot.wait_for("reaction_add", timeout=QUESTION_TIMEOUT, check=check)
+            user_message = await bot.wait_for("message", timeout=QUESTION_TIMEOUT, check=check)
+            user_answer = user_message.content.upper()
         except asyncio.TimeoutError:
             await interaction.channel.send(
                 f"⏰ Hết thời gian! Đáp án đúng: **{q['correct_answer']}. {q['options'][q['correct_answer']]}**"
             )
-            wrong_answers.append(q["question"])
+            user_answer = "Không trả lời"
+            user_answers.append({
+                "question": q["question"],
+                "user_answer": user_answer,
+                "correct_answer": q["correct_answer"],
+                "correct_text": q["options"][q["correct_answer"]],
+                "is_correct": False
+            })
             continue
 
-        # Đáp án user chọn
-        emoji_to_option = {"🇦": "A", "🇧": "B", "🇨": "C", "🇩": "D"}
-        user_answer = emoji_to_option.get(str(reaction.emoji), "")
-
-        if user_answer == q["correct_answer"]:
+        # Lưu câu trả lời
+        is_correct = user_answer == q["correct_answer"]
+        if is_correct:
             score += 1
-            await interaction.channel.send(f"✅ Chính xác! ({score}/{i})")
-        else:
-            await interaction.channel.send(
-                f"❌ Sai rồi! Bạn chọn {user_answer}, đáp án đúng là {q['correct_answer']}."
-            )
-            wrong_answers.append(q["question"])
 
-        await asyncio.sleep(2)
+        user_answers.append({
+            "question": q["question"],
+            "user_answer": user_answer,
+            "correct_answer": q["correct_answer"],
+            "correct_text": q["options"][q["correct_answer"]],
+            "is_correct": is_correct
+        })
+
+        # Chờ 1 giây trước câu hỏi tiếp theo
+        await asyncio.sleep(1)
 
     # Kết quả cuối cùng
     percentage = round((score / NUM_QUESTIONS) * 100, 1)
-    result_embed = discord.Embed(
-        title="📊 Kết Quả Quiz",
-        description=f"🎯 Điểm số: {score}/{NUM_QUESTIONS} ({percentage}%)",
-        color=discord.Color.green() if percentage >= 70 else discord.Color.red(),
-    )
-    await interaction.channel.send(embed=result_embed)
+    
+    # Thông báo kết quả đơn giản
+    result_message = f"🎯 **Kết quả Quiz:** {score}/{NUM_QUESTIONS} câu đúng ({percentage}%)"
+    
+    if percentage >= 90:
+        result_message += "\n🏆 Xuất sắc!"
+    elif percentage >= 70:
+        result_message += "\n🎉 Tốt!"
+    elif percentage >= 50:
+        result_message += "\n📚 Khá!"
+    else:
+        result_message += "\n💪 Cần cố gắng thêm!"
+    
+    await interaction.channel.send(result_message)
 
 
 if __name__ == "__main__":
-    bot.run(TOKEN)
+    if not TOKEN:
+        print("❌ Lỗi: Không tìm thấy DISCORD_TOKEN!")
+        print("📝 Vui lòng tạo file .env và thêm DISCORD_TOKEN=your_token_here")
+        print("📝 Hoặc cài đặt biến môi trường DISCORD_TOKEN")
+    else:
+        print("🚀 Đang khởi động bot...")
+        try:
+            bot.run(TOKEN)
+        except discord.LoginFailure:
+            print("❌ Lỗi đăng nhập: Token Discord không hợp lệ!")
+        except Exception as e:
+            print(f"❌ Lỗi khởi động bot: {e}")

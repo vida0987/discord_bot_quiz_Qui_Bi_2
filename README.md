@@ -37,8 +37,10 @@ pip install -r requirements.txt
 
 **Cách 1: Sử dụng file .env (Khuyến nghị)**
 ```bash
-# Tạo file .env
-echo "DISCORD_TOKEN=your_discord_bot_token_here" > .env
+# Tạo file .env (copy từ env.example)
+copy env.example .env
+
+# Sau đó chỉnh sửa file .env và thay thế your_discord_bot_token_here bằng token thực
 ```
 
 **Cách 2: Sử dụng biến môi trường**
@@ -49,6 +51,11 @@ set DISCORD_TOKEN=your_discord_bot_token_here
 # Linux/Mac
 export DISCORD_TOKEN=your_discord_bot_token_here
 ```
+
+**⚠️ QUAN TRỌNG:**
+- **KHÔNG** commit file `.env` lên GitHub
+- File `.env` đã được thêm vào `.gitignore` để bảo vệ
+- Chỉ sử dụng `env.example` làm template
 
 ### 5. Chạy bot
 ```bash
