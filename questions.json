@@ -1,0 +1,1004 @@
+{
+  "questions": [
+    {
+      "question": "Ai là người đã đưa Klein vào con đường phi phàm giả, khi trao cho anh lọ thuốc \"Thầy bói\"?",
+      "options": {
+        "A": "Dunn Smith",
+        "B": "Lão Neil",
+        "C": "Leonard Mitchell", 
+        "D": "Seer"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Trong Tarot Club, biệt danh của Derrick Berg là gì?",
+      "options": {
+        "A": "Mặt trời",
+        "B": "Mặt trăng",
+        "C": "Ngôi sao",
+        "D": "Chính nghĩa"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Danh sách 4 của con đường Trộm có tên là gì?",
+      "options": {
+        "A": "Hành giả giấc mơ",
+        "B": "Bậc thầy lừa gạt",
+        "C": "Kẻ thao túng",
+        "D": "Kẻ kí sinh"
+      },
+      "correct_answer": "D"
+    },
+    {
+      "question": "Danh hiệu của thần đứng đầu nhà thờ đêm đen là gì?",
+      "options": {
+        "A": "Dục vọng mẫu thụ",
+        "B": "Nữ thần trăng máu",
+        "C": "Nữ thần đêm đen",
+        "D": "Đọa lạc mẫu thân"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Ai là người sở hữu con búp bê đặc biệt Sharron?",
+      "options": {
+        "A": "Maric",
+        "B": "Leonard Mitchell",
+        "C": "Dunn Smith",
+        "D": "Alger Wilson"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Trong con mắt của giới phi phàm giả, \"Amon\" nổi tiếng với cái gì?",
+      "options": {
+        "A": "Là shipper",
+        "B": "Bị đốt tóc",
+        "C": "Kính độc nhãn",
+        "D": "Là con chân tạo"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Danh sách 9 cơ bản của con đường Thủy thủ là gì?",
+      "options": {
+        "A": "Thành viên",
+        "B": "Thuyền trưởng",
+        "C": "Thủy thủ",
+        "D": "Người biển"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Ai là thủ lĩnh của thành phố bạc?",
+      "options": {
+        "A": "Klein Moretti",
+        "B": "Derrick Berg",
+        "C": "Colin Iliad",
+        "D": "Amon"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Danh sách 0 của con đường Khán giả là gì?",
+      "options": {
+        "A": "Tầm nhìn",
+        "B": "Tác giả",
+        "C": "Thượng đế",
+        "D": "Không tưởng gia"
+      },
+      "correct_answer": "D"
+    },
+    {
+      "question": "Leonard Mitchell là người ký kết khế ước với thực thể nào?",
+      "options": {
+        "A": "Medici",
+        "B": "Pallez Zoroast",
+        "C": "Adam",
+        "D": "Antigonus"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Ai là người sáng lập Tarot Club?",
+      "options": {
+        "A": "Klein Moretti",
+        "B": "Roselle Gustav",
+        "C": "Alger Wilson",
+        "D": "Amon"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Vị thần mà Alger Wilson tín ngưỡng là ai?",
+      "options": {
+        "A": "Nữ thần đêm đen",
+        "B": "Phong bạo chi thần",
+        "C": "Vĩnh hằng liệt dương",
+        "D": "Thần đất mẹ"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Con đường của Roselle Gustav thành thần là gì?",
+      "options": {
+        "A": "Chiến binh",
+        "B": "Luật sư",
+        "C": "Thông thức giả",
+        "D": "Ẩn giả"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Thành phố chính nơi Klein sinh sống ở đầu truyện là gì?",
+      "options": {
+        "A": "Backlund",
+        "B": "Tingen",
+        "C": "Silver City",
+        "D": "Trier"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Danh sách 7 của con đường Trộm là gì?",
+      "options": {
+        "A": "Siêu trộm",
+        "B": "Giải mã học giả",
+        "C": "Lừa đảo đại sư",
+        "D": "Lừa gạt đại sư"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Thần đèn có liên quan đến ngoại thần nào?",
+      "options": {
+        "A": "Dục vọng mẫu thụ",
+        "B": "Sương mù hỗn độn",
+        "C": "Đọa lạc mẫu thân",
+        "D": "Tiếng thì thầm không dứt"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Trước khi trở thành phi phàm giả, nghề nghiệp của Klein là gì?",
+      "options": {
+        "A": "Kế toán",
+        "B": "Giáo viên Lịch sử",
+        "C": "Nhà báo",
+        "D": "Luật sư"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Con tàu của Hải tặc King Nast mang tên gì?",
+      "options": {
+        "A": "Black Tulip",
+        "B": "Sea Shark",
+        "C": "Red Rose",
+        "D": "Ghost Ship"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Người được mệnh danh là \"Ẩn nặc hiền giả\" là ai?",
+      "options": {
+        "A": "Tính duy nhất của đường Ẩn giả",
+        "B": "Amon",
+        "C": "Bernadette Gustav",
+        "D": "Tính duy nhất đường Kẻ hoàn mĩ"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Danh sách 5 của con đường khán giả là gì?",
+      "options": {
+        "A": "Mộng cảnh hành giả",
+        "B": "Thôi miên sư",
+        "C": "Người ngủ gật",
+        "D": "Tác giả"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Vị thần nào còn được gọi là Thần hơi nước?",
+      "options": {
+        "A": "Lilith",
+        "B": "Leodero",
+        "C": "Adam",
+        "D": "Stiano"
+      },
+      "correct_answer": "D"
+    },
+    {
+      "question": "Vị vua nổi tiếng Roselle Gustav được nhắc đến với danh hiệu gì?",
+      "options": {
+        "A": "Emperor of the Red Moon",
+        "B": "Black Emperor",
+        "C": "White Emperor",
+        "D": "Sun Emperor"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Danh sách 6 của con đường Kẻ hoàn mĩ là gì?",
+      "options": {
+        "A": "Công tượng",
+        "B": "Robot",
+        "C": "Kẻ điên",
+        "D": "Thiên tài"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là người kế thừa danh xưng Thiên sứ đỏ?",
+      "options": {
+        "A": "Medici",
+        "B": "Tutor",
+        "C": "Zaratul",
+        "D": "Adam"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Danh sách 2 của con đường Túc mệnh có tên gì?",
+      "options": {
+        "A": "Tội nhân",
+        "B": "Thiên sứ cứu rỗi",
+        "C": "Người gặp nạn",
+        "D": "Người trong vòng"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Con đường \"Tử thần\" có danh sách 9 là gì?",
+      "options": {
+        "A": "Người nhặt xác",
+        "B": "Người chôn xác",
+        "C": "Người giữ xác",
+        "D": "Người ướp xác"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Nhân vật nào từng sử dụng bí danh \"Gehrman Sparrow\"?",
+      "options": {
+        "A": "Klein Moretti",
+        "B": "Alger Wilson",
+        "C": "Leonard Mitchell",
+        "D": "Roselle Gustav"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "\"Học phái hoa hồng\" thờ phụng vị thần nào?",
+      "options": {
+        "A": "Mặt trăng đỏ",
+        "B": "Dục vọng mẫu thụ",
+        "C": "Sa đọa mẫu thân",
+        "D": "Nữ thần đêm đen"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Ai là người nắm giữ lá bài \"Cửa\" trong các lá bài khinh nhờn?",
+      "options": {
+        "A": "Amon",
+        "B": "Adam",
+        "C": "Klein",
+        "D": "Medici"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là người chấm dứt kỉ nguyên cổ thần?",
+      "options": {
+        "A": "Adam",
+        "B": "Medici",
+        "C": "Zaratul",
+        "D": "Amon"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là người đã kế vị vị trí Captain sau cái chết của Dunn Smith tại Tingen?",
+      "options": {
+        "A": "Leonard Mitchell",
+        "B": "Klein Moretti",
+        "C": "Frye",
+        "D": "Soest"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Danh sách 5 của con đường Quái vật là gì?",
+      "options": {
+        "A": "Người đẹp trai",
+        "B": "Người học việc",
+        "C": "Người thắng",
+        "D": "Vận may"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Vị vua nào trong lịch sử Loen đã bí mật tiến hành nghi lễ để thăng thần?",
+      "options": {
+        "A": "George III",
+        "B": "Roselle Gustav",
+        "C": "Solomon",
+        "D": "Nast"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Thần bị trói tên thật là gì?",
+      "options": {
+        "A": "Adam",
+        "B": "Tolnar",
+        "C": "Flegrea",
+        "D": "Zaratul"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Trong Tarot Club, biệt danh của Audrey Hall là gì?",
+      "options": {
+        "A": "Ma thuật sư",
+        "B": "Chính nghĩa",
+        "C": "Mặt trăng",
+        "D": "Ngôi sao"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Trong Tarot Club, ai giữ danh xưng \"The Moon\"?",
+      "options": {
+        "A": "Emlyn White",
+        "B": "Derrick Berg",
+        "C": "Alger Wilson",
+        "D": "Fors Wall"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Thành viên Tarot Club nào có nghề nghiệp chính là nhà văn?",
+      "options": {
+        "A": "Fors Wall",
+        "B": "Audrey Hall",
+        "C": "Xio Derecha",
+        "D": "Emlyn White"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Xio Derecha theo con đường nào?",
+      "options": {
+        "A": "Trọng tài",
+        "B": "Trộm",
+        "C": "Luật sư",
+        "D": "Công chức"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là người từng sở hữu Card of Blasphemy \"Seer\"?",
+      "options": {
+        "A": "Zaratul",
+        "B": "Adam",
+        "C": "Audrey Hall",
+        "D": "Amon"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Sự kiện nào khiến Thời tiết thuật sĩ bị khịa nhiều nhất?",
+      "options": {
+        "A": "Chơi ngu bị sét đánh",
+        "B": "Bị hải vương chặn lại trên biển",
+        "C": "Rượt không được tác giả",
+        "D": "Cá cược thua với luật sư"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Thành phố lớn nhất của Loen Empire là gì?",
+      "options": {
+        "A": "Backlund",
+        "B": "Tingen",
+        "C": "Trier",
+        "D": "Bayam"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Danh sách 2 của con đường thầy bói có tên là gì?",
+      "options": {
+        "A": "Kì tích sư",
+        "B": "Quỉ bí người hầu",
+        "C": "Cổ đại học giả",
+        "D": "Quỉ pháp sư"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Biệt danh \"Thần bí nữ vương\" thuộc về ai?",
+      "options": {
+        "A": "Bernadette Gustav",
+        "B": "Sharron",
+        "C": "Medici",
+        "D": "Lilith"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Danh sách 2 của con đường Ẩn giả có tên là gì?",
+      "options": {
+        "A": "Thánh giả",
+        "B": "Hiền giả",
+        "C": "Hoàng đế tri thức",
+        "D": "Thông thức giả"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "\"The Fool\" Klein lần đầu tiên triệu hồi Tarot Club bằng vật phẩm nào?",
+      "options": {
+        "A": "Không cần gì hết",
+        "B": "Sương mù xám",
+        "C": "Bánh mì",
+        "D": "Bộ bài tarot"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Ai là kẻ phản bội đã gây ra bi kịch Tingen?",
+      "options": {
+        "A": "Ince Zangwill",
+        "B": "Leonard Mitchell",
+        "C": "Dunn Smith",
+        "D": "Old Neil"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Hoàng đế Roselle đã bí mật ghi lại nhật ký bằng ngôn ngữ nào?",
+      "options": {
+        "A": "Tiếng người khổng lồ",
+        "B": "Tiếng Hermes Cổ",
+        "C": "Tiếng trung",
+        "D": "Tiếng cự long"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Ai là người đã giết chết Ince Zangwill?",
+      "options": {
+        "A": "Klein Moretti",
+        "B": "Adam",
+        "C": "Daly",
+        "D": "Leonard Mitchell"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai đã tạo ra thẻ bài bang bổ?",
+      "options": {
+        "A": "Thần đêm đen",
+        "B": "Solomon Hoàng đế",
+        "C": "Roselle",
+        "D": "Giáo hội hơi nước"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Thầy Azik danh sách nào?",
+      "options": {
+        "A": "Hoàng đế tái nhợt",
+        "B": "Tử vong chấp chính quan",
+        "C": "Người vĩnh kiếp",
+        "D": "Kẻ tái sinh"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Ai là người đầu tiên phát hiện Klein sau khi anh thăng Thần?",
+      "options": {
+        "A": "Azik Eggers",
+        "B": "Will Auceptin",
+        "C": "Medici",
+        "D": "Adam"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Thành phố cảng Tingen nằm trong vương quốc nào?",
+      "options": {
+        "A": "Loen",
+        "B": "Intis",
+        "C": "Feysac",
+        "D": "Rorsted"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Biệt danh của Cattleya trong Tarot Club là gì?",
+      "options": {
+        "A": "Thế Giới",
+        "B": "Ẩn Giả",
+        "C": "Hải Vương",
+        "D": "Nữ Phù Thủy"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Danh sách 9 của con đường Ác ma là gì?",
+      "options": {
+        "A": "Tội phạm",
+        "B": "Ác ma",
+        "C": "Tù phạm",
+        "D": "Kẻ máu lạnh"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Bernadette Gustav nghề nghiệp là gì?",
+      "options": {
+        "A": "Hải tặc",
+        "B": "Hải quân",
+        "C": "Thầy bói",
+        "D": "Công Chúa"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "\"Sealed Artifact 2-049\" còn được gọi là gì?",
+      "options": {
+        "A": "Sổ Tay Ghi Chép",
+        "B": "Dây Chuyền Xương",
+        "C": "Ngọn Đuốc Bất Diệt",
+        "D": "Đồng Hồ Vạn Năng"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là người nắm giữ lá bài \"Mặt Trời\"?",
+      "options": {
+        "A": "Derrick Berg",
+        "B": "Klein Moretti",
+        "C": "Roselle Gustav",
+        "D": "Ince Zangwill"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Thành phố Trier thuộc quốc gia nào?",
+      "options": {
+        "A": "Intis",
+        "B": "Loen",
+        "C": "Feysac",
+        "D": "Rorsted"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Nhân vật nào mang danh hiệu \"giày đỏ\"?",
+      "options": {
+        "A": "Aurora",
+        "B": "Lumian",
+        "C": "Jenna",
+        "D": "Franca"
+      },
+      "correct_answer": "D"
+    },
+    {
+      "question": "Ai là nỗi sợ lớn nhất của hải tặc?",
+      "options": {
+        "A": "Edessak",
+        "B": "Nast",
+        "C": "Gehrman Sparrow",
+        "D": "Colin Iliad"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Con đường Luật Sư có Danh sách 1 là gì?",
+      "options": {
+        "A": "Thí tự thân vương",
+        "B": "Người lách luật",
+        "C": "Phản bội hoàng đế",
+        "D": "Ác độc công tước"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Lumian ngủ với Franca để làm gì?",
+      "options": {
+        "A": "Tiêu hóa ma dược",
+        "B": "Thèm thuồng",
+        "C": "Làm Jenna ghen",
+        "D": "Nhớ Aurora"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Kẻ không mặt thuộc Con đường nào?",
+      "options": {
+        "A": "Thầy bói",
+        "B": "Người học việc",
+        "C": "Thợ săn",
+        "D": "Hải tặc"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là kẻ thù chính trong Con đường Túc Mệnh của Lumian?",
+      "options": {
+        "A": "Adam",
+        "B": "Medici",
+        "C": "Zaratul",
+        "D": "Antigonus"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Con đường Thợ săn có Danh sách 0 là gì?",
+      "options": {
+        "A": "Tư tế đỏ",
+        "B": "Đồ Tể Máu",
+        "C": "Thần Sói",
+        "D": "Kỵ Sĩ Hoang Dã"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Đó khát ngọ nguậy là đặc tính phi phàm của đường nào?",
+      "options": {
+        "A": "Người cầu nguyện bí ẩn",
+        "B": "Thầy bói",
+        "C": "Ác ma",
+        "D": "Tù phạm"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Cái chết của Dunn Smith là do ai gây ra?",
+      "options": {
+        "A": "Ince Zangwill",
+        "B": "Klein Moretti",
+        "C": "Leonard Mitchell",
+        "D": "Sealed Artifact"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Tổ chức MI9 thuộc quốc gia nào?",
+      "options": {
+        "A": "Loen",
+        "B": "Intis",
+        "C": "Feysac",
+        "D": "Rorsted"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Công tước, bá tước – các danh xưng này từng là của … cho đến khi con người bắt chước?",
+      "options": {
+        "A": "Cự nhân",
+        "B": "Huyết tộc",
+        "C": "Rồng",
+        "D": "Ác quỉ"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Từ danh sách mấy thì là người phi phàm bậc trung?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Bán thần còn được gọi là?",
+      "options": {
+        "A": "Thánh giả",
+        "B": "Thiên sứ",
+        "C": "Tòng thần",
+        "D": "Á thần"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Fors Wall đã từng học gì?",
+      "options": {
+        "A": "Y",
+        "B": "Sử",
+        "C": "Hóa học",
+        "D": "Nghiên cứu"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Thần đèn làm sao đi xuyên qua màn chắn?",
+      "options": {
+        "A": "Thiên tôn mời vào",
+        "B": "Tự sát và hồi sinh bên trong",
+        "C": "Đi qua thôi không bị cản",
+        "D": "Đập nát luôn màn chắn"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Con đường Chiến Binh có đường gần là gì?",
+      "options": {
+        "A": "Tử thần",
+        "B": "Thợ săn",
+        "C": "Ác ma",
+        "D": "Vệ Sĩ"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là giáo hoàng giáo hội tai họa?",
+      "options": {
+        "A": "Anthony Stevenson",
+        "B": "Colin Iliad",
+        "C": "Roselle Gustav",
+        "D": "George III"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Múa rối đại sư danh sách mấy?",
+      "options": {
+        "A": "Danh sách 9",
+        "B": "Danh sách 7",
+        "C": "Danh sách 5",
+        "D": "Danh sách 8"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Vị thần nào còn được gọi là \"Cha của ác ma\"?",
+      "options": {
+        "A": "Dục vọng mẫu thụ",
+        "B": "Nữ thần đêm đen",
+        "C": "Sa đọa mẫu thân",
+        "D": "Thần bị trói"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Thiên sứ của giáo hội đêm đen là ai?",
+      "options": {
+        "A": "Arianna",
+        "B": "Lilith",
+        "C": "Ouroboros",
+        "D": "Adam"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Klein từng sử dụng danh tính nào để hoạt động ở Tingen?",
+      "options": {
+        "A": "Thầy bói",
+        "B": "Luật sư",
+        "C": "Bồi bàn",
+        "D": "Người Truyền Bá Tin Tức"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Nhân vật nào từng giữ \"0-08\"?",
+      "options": {
+        "A": "Roselle Gustav",
+        "B": "Ince Zangwill",
+        "C": "Klein Moretti",
+        "D": "Medici"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Danh sách 5 của Con đường Tù phạm là gì?",
+      "options": {
+        "A": "Oan hồn",
+        "B": "Kẻ điên",
+        "C": "Người sói",
+        "D": "Xác sống"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "\"Chú định điên cuồng\" là danh sách mấy?",
+      "options": {
+        "A": "2",
+        "B": "1",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Trong Tarot Club, biệt danh của Klein Moretti là gì?",
+      "options": {
+        "A": "Kẻ khờ",
+        "B": "Thầy bói",
+        "C": "Thế giới",
+        "D": "Ma thuật sư"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Đường nào đi sẽ biến nữ?",
+      "options": {
+        "A": "Dược sư",
+        "B": "Thợ săn",
+        "C": "Ác ma",
+        "D": "Gái gú"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Thầy Azik cho Klein cái gì?",
+      "options": {
+        "A": "Đầu Lâu",
+        "B": "Còi Đồng",
+        "C": "Ngọn Lửa Xanh",
+        "D": "Chuỗi Xích Đen"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Ai là Rắn thủy ngân?",
+      "options": {
+        "A": "Will Auceptin",
+        "B": "Derrick Berg",
+        "C": "Arianna",
+        "D": "Colin Iliad"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Thủ đô của Loen Empire là gì?",
+      "options": {
+        "A": "Backlund",
+        "B": "Tingen",
+        "C": "Trier",
+        "D": "Bayam"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Đâu không phải yêu cầu của nghi thức Hắc hoàng đế?",
+      "options": {
+        "A": "Xây lăng",
+        "B": "Đặt luật",
+        "C": "Giết con",
+        "D": "Hồi sinh"
+      },
+      "correct_answer": "C"
+    },
+    {
+      "question": "Roselle Gustav từng sáng tạo ra loại máy nào?",
+      "options": {
+        "A": "Tàu Hơi Nước",
+        "B": "Máy Bay",
+        "C": "Tàu Ngầm",
+        "D": "Máy Chiếu"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Khi Roselle còn sống, ông từng giữ chức danh nào?",
+      "options": {
+        "A": "Hoàng Đế Loen",
+        "B": "Hoàng Đế Intis",
+        "C": "Giáo Hoàng",
+        "D": "Đại Nguyên Soái"
+      },
+      "correct_answer": "B"
+    },
+    {
+      "question": "Ai là người Daly thích?",
+      "options": {
+        "A": "Dunn Smith",
+        "B": "Leonard",
+        "C": "Melissa",
+        "D": "Benson"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Kẻ nào là anh em song sinh với Amon?",
+      "options": {
+        "A": "Adam",
+        "B": "Zaratul",
+        "C": "Medici",
+        "D": "Pallez Zoroast"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Người trong vòng là danh sách của đường nào?",
+      "options": {
+        "A": "Túc mệnh",
+        "B": "Vận mệnh",
+        "C": "Định mệnh",
+        "D": "Trộm"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Danh sách 8 của Con đường Tử Thần là gì?",
+      "options": {
+        "A": "Người Đào Mộ",
+        "B": "Người Giữ Xác",
+        "C": "Người Nhặt Xác",
+        "D": "Người Ướp Xác"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Ai là thủ lĩnh của Giáo Hội Kẻ khờ?",
+      "options": {
+        "A": "Derrick",
+        "B": "Dunn Smith",
+        "C": "Archbishop Sauron",
+        "D": "Lilith"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "\"Vực thẳm\" thuộc về Con đường nào?",
+      "options": {
+        "A": "Con đường Ác Quỷ",
+        "B": "Con đường Tử Vong",
+        "C": "Con đường Bóng Tối",
+        "D": "Con đường Chiến Sĩ"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Đường tù phạm và Ác ma dùng chung nguyên chất nào?",
+      "options": {
+        "A": "Vực thẳm",
+        "B": "Đêm đen",
+        "C": "Bóng tối",
+        "D": "Đêm tối"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Danh sách 3 của Con đường Thủy thủ là gì?",
+      "options": {
+        "A": "Hải vương",
+        "B": "Biển cả",
+        "C": "Bạo quân",
+        "D": "Phẫn nộ"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Trong Tarot Club, ai giữ danh hiệu \"The Star\"?",
+      "options": {
+        "A": "Leonard Mitchell",
+        "B": "Audrey Hall",
+        "C": "Emlyn White",
+        "D": "Xio Derecha"
+      },
+      "correct_answer": "A"
+    },
+    {
+      "question": "Có tổng cộng mấy trụ?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "3",
+        "D": "2"
+      },
+      "correct_answer": "A"
+    }
+  ]
+}
