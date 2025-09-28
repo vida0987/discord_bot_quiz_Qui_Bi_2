@@ -951,22 +951,12 @@
       "correct_answer": "A"
     },
     {
-      "question": "\"Vực thẳm\" thuộc về Con đường nào?",
-      "options": {
-        "A": "Con đường Ác Quỷ",
-        "B": "Con đường Tử Vong",
-        "C": "Con đường Bóng Tối",
-        "D": "Con đường Chiến Sĩ"
-      },
-      "correct_answer": "A"
-    },
-    {
       "question": "Đường tù phạm và Ác ma dùng chung nguyên chất nào?",
       "options": {
-        "A": "Vực thẳm",
-        "B": "Đêm đen",
-        "C": "Bóng tối",
-        "D": "Đêm tối"
+        "A": "Thế giới tăm tối",
+        "B": "Chìa ánh sáng",
+        "C": "Vương quốc loạn lạc",
+        "D": "Biển hỗn độn"
       },
       "correct_answer": "A"
     },
@@ -1018,7 +1008,7 @@
       "C": "Mặt trăng",
       "D": "Ngôi sao"
     },
-    "correct_answer": "C"
+    "correct_answer": "B"
   },
   {
     "question": "Ai là người sáng lập Tarot Club?",
@@ -1038,7 +1028,7 @@
       "C": "Người ngủ gật",
       "D": "Tác gia"
     },
-    "correct_answer": "B"
+    "correct_answer": "A"
   },
   {
     "question": "Ai là Quân Vương Suy Bại?",
@@ -1078,7 +1068,7 @@
       "C": "Amon",
       "D": "Alger Wilson"
     },
-    "correct_answer": "B"
+    "correct_answer": "A"
   },
   {
     "question": "Sharron có biệt danh gì trong Tarot Club?",
