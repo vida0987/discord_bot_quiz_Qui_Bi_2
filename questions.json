@@ -999,6 +999,646 @@
         "D": "2"
       },
       "correct_answer": "A"
-    }
+    },
+  {
+    "question": "Quỉ bí chi chủ còn có tên khác là gì?",
+    "options": {
+      "A": "Chúa tể huyền bí",
+      "B": "Chúa tể ác ma",
+      "C": "Chúa tể quyền hành",
+      "D": "Chúa tể ăn hành"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Trong Tarot Club biệt danh của Derrick Berg là gì?",
+    "options": {
+      "A": "Chính nghĩa",
+      "B": "Mặt trời",
+      "C": "Mặt trăng",
+      "D": "Ngôi sao"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Ai là người sáng lập Tarot Club?",
+    "options": {
+      "A": "Klein Moretti",
+      "B": "Roselle Gustav",
+      "C": "Alger Wilson",
+      "D": "Amon"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Danh sách 5 của con đường khán giả là gì?",
+    "options": {
+      "A": "Mộng cảnh hành giả",
+      "B": "Thôi miên sư",
+      "C": "Người ngủ gật",
+      "D": "Tác gia"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Ai là Quân Vương Suy Bại?",
+    "options": {
+      "A": "Một Ngoại thần",
+      "B": "Roselle",
+      "C": "Zaratul",
+      "D": "Medici"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Phần 2 của Quỉ bí chi chủ tên gì?",
+    "options": {
+      "A": "Quân vương suy bại",
+      "B": "Dục vọng mẫu thụ",
+      "C": "Nữ thần định mệnh",
+      "D": "Túc mệnh chi hoàn"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Cá muối là biệt danh của nhân vật nào?",
+    "options": {
+      "A": "Fors Wall",
+      "B": "Audrey Hall",
+      "C": "Xio Derecha",
+      "D": "Cattleya"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Ai là “The World” trong Tarot Club?",
+    "options": {
+      "A": "Gehrman Sparrow",
+      "B": "Klein Moretti",
+      "C": "Amon",
+      "D": "Alger Wilson"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Sharron có biệt danh gì trong Tarot Club?",
+    "options": {
+      "A": "Giáo hoàng",
+      "B": "Nữ hoàng",
+      "C": "Chính nghĩa",
+      "D": "Tiết chế"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Audrey Hall thuộc con đường nào?",
+    "options": {
+      "A": "Người xem",
+      "B": "Thẩm phán",
+      "C": "Thầy bói",
+      "D": "Mặt trời"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Emlyn White thuộc con đường nào?",
+    "options": {
+      "A": "Kẻ trộm",
+      "B": "Mặt trăng",
+      "C": "Thầy bói",
+      "D": "Mặt trời"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Tên thật của Gehrman Sparrow là gì?",
+    "options": {
+      "A": "Klein Moretti",
+      "B": "Derrick Berg",
+      "C": "Alger Wilson",
+      "D": "Anderson Hood"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Klein Moretti ban đầu làm nghề gì?",
+    "options": {
+      "A": "Thám tử nghiệp dư",
+      "B": "Nhà thám hiểm",
+      "C": "Giáo sĩ",
+      "D": "Sinh viên thất nghiệp"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Thành phố chính xuất hiện đầu tiên trong truyện là?",
+    "options": {
+      "A": "Backlund",
+      "B": "Tingen",
+      "C": "Lenburg",
+      "D": "Desi Bay"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Audrey Hall còn được gọi là?",
+    "options": {
+      "A": "Tiểu tiên nữ",
+      "B": "Viên ngọc quí",
+      "C": "Thiếu nữ bạc",
+      "D": "Ngôi sao nhỏ"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Emlyn White thuộc chủng tộc nào?",
+    "options": {
+      "A": "Xác ướp",
+      "B": "Người sói",
+      "C": "Người bình thường",
+      "D": "Ma cà rồng"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Tarot Club họp ở đâu?",
+    "options": {
+      "A": "Sương mù xám",
+      "B": "Nhà nguyện",
+      "C": "Thư viện",
+      "D": "Tháp chuông"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Ai là thành viên nữ đầu tiên của Tarot Club?",
+    "options": {
+      "A": "Sharron",
+      "B": "Fors Wall",
+      "C": "Audrey Hall",
+      "D": "Xio"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Lá bài của Alger Wilson trong Tarot Club?",
+    "options": {
+      "A": "Giáo hoàng",
+      "B": "Thẩm phán",
+      "C": "Chiến thần",
+      "D": "Người treo ngược"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Fors Wall theo đường gì?",
+    "options": {
+      "A": "Học đồ",
+      "B": "Kẻ trộm",
+      "C": "Thầy thuốc",
+      "D": "Nhà văn"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Sharron là lúc gặp danh sách mấy gì?",
+    "options": {
+      "A": "8",
+      "B": "5",
+      "C": "7",
+      "D": "6"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Cattleya có lá bài Tarot?",
+    "options": {
+      "A": "Ngôi sao",
+      "B": "Thủy thủ",
+      "C": "Ẩn giả",
+      "D": "Pháp sư biển"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Biệt danh của Audrey Hall trong Tarot Club là gì?",
+    "options": {
+      "A": "Chính nghĩa",
+      "B": "Ngôi sao",
+      "C": "Tiết chế",
+      "D": "Thế giới"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Người Daly thích tên là gì?",
+    "options": {
+      "A": "Klein",
+      "B": "Melissa",
+      "C": "Dunn",
+      "D": "Sharron"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Cha xứ Vatherian thuộc giáo hội nào?",
+    "options": {
+      "A": "Giáo hội mặt trời",
+      "B": "Giáo hội đêm tối",
+      "C": "Giáo hội tri thức",
+      "D": "Giáo hội bão tố"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Người bạn thân nhất của Fors Wall là ai?",
+    "options": {
+      "A": "Xio Derecha",
+      "B": "Audrey Hall",
+      "C": "Emlyn White",
+      "D": "Derrick Berg"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Biệt danh của Xio Derecha trong Tarot Club là gì?",
+    "options": {
+      "A": "Chính nghĩa",
+      "B": "Thẩm phán",
+      "C": "Mặt trăng",
+      "D": "Nữ hoàng"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Gehrman Sparrow nổi tiếng với nghề gì?",
+    "options": {
+      "A": "Chiến binh",
+      "B": "Thầy bói",
+      "C": "Giáo sĩ",
+      "D": "Thợ săn hải tặc"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Derrick Berg theo đường nào?",
+    "options": {
+      "A": "Người mặt trời",
+      "B": "Người xem",
+      "C": "Người treo ngược",
+      "D": "Người tử thần"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Người dẫn dắt Klein lúc mới thăng cấp là?",
+    "options": {
+      "A": "Melissa Moretti",
+      "B": "Roselle Gustav",
+      "C": "Dunn Smith",
+      "D": "Benson Moretti"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Benson Moretti là ai?",
+    "options": {
+      "A": "Anh trai của Klein",
+      "B": "Em trai của Klein",
+      "C": "Bạn thân của Klein",
+      "D": "Cha của Klein"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Melissa Moretti là ai?",
+    "options": {
+      "A": "Vợ của Klein",
+      "B": "Chị gái của Klein",
+      "C": "Em gái của Klein",
+      "D": "Mẹ của Klein"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Biệt danh của Gehrman Sparrow?",
+    "options": {
+      "A": "Thợ săn hải tặc hiền lành",
+      "B": "Thợ săn hải tặc điên cuồng",
+      "C": "Thợ săn hải tặc mơ mộng",
+      "D": "Thợ săn hải tặc ngốc nghếch"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Ai là người chấm dứt kỉ nguyên cổ thần?",
+    "options": {
+      "A": "Amon",
+      "B": "Medici",
+      "C": "Zaratul",
+      "D": "Adam"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Kẻ Hủ Bại là danh sách của ngoại thần nào?",
+    "options": {
+      "A": "Sa đọa mẫu thân",
+      "B": "Dục vọng mẫu thụ",
+      "C": "Quân vương suy bại",
+      "D": "Sương mù hỗn độn"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Kim loại nào đại diện cho mặt trời?",
+    "options": {
+      "A": "bạc",
+      "B": "vàng",
+      "C": "đồng",
+      "D": "sắt"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Kẻ Bị Trói tương ứng với lá bài nào?",
+    "options": {
+      "A": "Ác ma",
+      "B": "Tháp trắng",
+      "C": "Tiết chế",
+      "D": "Giáo hoàng"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Cháu gái của Klein tên gì?",
+    "options": {
+      "A": "Alice",
+      "B": "Melisa",
+      "C": "Alisa",
+      "D": "Akali"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Amon có biệt danh gì?",
+    "options": {
+      "A": "Thần Tiên Tri",
+      "B": "Thần Bị Trói",
+      "C": "Thần Lừa Gạt",
+      "D": "Thần Cười"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Danh sách 4 của Độc giả tên gì?",
+    "options": {
+      "A": "Nhà tiên tri",
+      "B": "Người nhìn thấu",
+      "C": "Học giả",
+      "D": "Người thông minh"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Kỷ nguyên nào còn được gọi là “Kỷ Nguyên Hỗn Loạn”?",
+    "options": {
+      "A": "Tiền kỉ nguyên",
+      "B": "Kỷ thứ nhất",
+      "C": "Kỷ thứ hai",
+      "D": "Kỷ thứ ba"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Quỉ bí chi chủ bắt đầu năm nào?",
+    "options": {
+      "A": "1346",
+      "B": "1349",
+      "C": "1350",
+      "D": "1351"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Lần đầu lên sương mù xám Audrey bao nhiêu tuổi?",
+    "options": {
+      "A": "16",
+      "B": "17",
+      "C": "18",
+      "D": "19"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Hình thái sinh vật thần thoại của đường Đêm tối?",
+    "options": {
+      "A": "Chim báo tử",
+      "B": "Cái bóng",
+      "C": "Rồng hắc ám",
+      "D": "Ma lang"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Mẹ của bầu trời là Thiên sứ của?",
+    "options": {
+      "A": "Giáo hội Gió bão",
+      "B": "Giáo hội Đêm tối",
+      "C": "Giáo hội Mặt trời",
+      "D": "Giáo hội Tri thức"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Hủy diệt Ma lang tên thật là?",
+    "options": {
+      "A": "Flegrea",
+      "B": "Kvastir",
+      "C": "Aurmir",
+      "D": "Ankewelt"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Dị chủng Vương là danh hiệu của?",
+    "options": {
+      "A": "Flegrea",
+      "B": "Kvastir",
+      "C": "Aurmir",
+      "D": "Ankewelt"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Ai là Cổ thần giữ danh sách 1 đường Lỗi?",
+    "options": {
+      "A": "Flegrea",
+      "B": "Kvastir",
+      "C": "Aurmir",
+      "D": "Ankewelt"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Phật giáo là giáo phái của đường nào?",
+    "options": {
+      "A": "Quái vật",
+      "B": "Thầy bói",
+      "C": "Thợ săn",
+      "D": "Thẩm phán"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Tổ chức nào được lập ra để giết Thần mặt trời cổ đại?",
+    "options": {
+      "A": "Hoa hồng đẫm máu",
+      "B": "Tường vi cứu rỗi",
+      "C": "Cẩm tú chuộc tội",
+      "D": "Mẫu đơn cao quý"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Chiến thần tên thật là?",
+    "options": {
+      "A": "Olive",
+      "B": "Badheil",
+      "C": "Ezekiel",
+      "D": "Aurmir"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Thần mặt trời cổ đại có bao nhiêu Vua Thiên sứ?",
+    "options": {
+      "A": "6",
+      "B": "7",
+      "C": "8",
+      "D": "9"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Con đường nào nắm giữ vận rủi?",
+    "options": {
+      "A": "Đêm đen",
+      "B": "Tử thần",
+      "C": "Ác ma",
+      "D": "Chiến binh"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Mr. A danh sách mấy?",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "6",
+      "D": "5 hai đường"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Chu Minh Thụy là người?",
+    "options": {
+      "A": "Lưỡng Quảng",
+      "B": "Thượng Hải",
+      "C": "Bắc Kinh",
+      "D": "Tứ Xuyên"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Đâu không phải là tổ chức dưới trướng ngoại thần Sương mù hỗn độn?",
+    "options": {
+      "A": "Hội Điều Giải",
+      "B": "Chợ đen",
+      "C": "Câu lạc bộ thương nhân",
+      "D": "Học phái chân lí"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Đâu không phải tôn danh của nữ thần định mệnh?",
+    "options": {
+      "A": "Người Thêu Dệt Vận Mệnh Của Vạn Vật",
+      "B": "Biểu Tượng Của Phán Quyết Tối Hậu",
+      "C": "Khởi nguồn Dòng Chảy Định Mệnh",
+      "D": "Nữ Thần Vĩnh Sinh Của Tương Lai"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Bulatov Ivan có tiền thưởng là bao nhiêu?",
+    "options": {
+      "A": "2.6 millions verl",
+      "B": "2.7 millions verl",
+      "C": "2.8 millions verl",
+      "D": "2.9 millions verl"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Niên đại hủy diệt của kỉ đệ nhất bắt đầu từ năm nào?",
+    "options": {
+      "A": "565",
+      "B": "564",
+      "C": "566",
+      "D": "567"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Ma dược của danh sách 8 con đường đêm tối",
+    "options": {
+      "A": "Chất lỏng màu đen bốc mùi hôi thối",
+      "B": "Chất lỏng màu đen tĩnh lặng và thu mình bề mặt giống như gương soi",
+      "C": "Chất lỏng như nước hồ được tắm trong ánh sáng lạnh lẽo bên trong có một xoáy nước nhỏ phát ra âm thanh mơ hồ",
+      "D": "Chất lỏng mơ hồ phản chiếu vô số ảo ảnh tựa như một giấc mộng được hiện thực hoá"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Câu nói 'Chúng ta đều là nạn nhân của sự chế giễu của số phận, nhưng tôi muốn thách thức và chống lại nó, ngay cả khi tôi không đủ khả năng, cho đến khi cái chết chấm dứt tất cả!' là của ai?",
+    "options": {
+      "A": "Adam",
+      "B": "Klein",
+      "C": "Medici",
+      "D": "Lumian"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Ý nghĩa của quyển “Người không mặt” không thể được hiểu với ý nghĩa nào dưới đây?",
+    "options": {
+      "A": "Chỉ một cấp bậc trong con đường thăng tiến siêu nhiên",
+      "B": "Phản ánh cuộc sống ẩn danh phải che giấu mọi thứ của Klein",
+      "C": "Tượng trưng cho những cá nhân vô danh bị lãng quên trong lịch sử",
+      "D": "Biểu tượng của sự tự do thoát khỏi mọi ràng buộc"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Cuốn sách mà Alice được cho mượn trong ngoại truyện 'Cháu gái của Klein' tên là?",
+    "options": {
+      "A": "Người hùng thế giới",
+      "B": "Thế Giới của Thế Giới",
+      "C": "Thợ săn hải tặc vĩ đại",
+      "D": "Thánh điển kẻ khờ"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Trong ngoại truyện thế giới hiện đại thì Sharron đã xem gì sau khi theo dõi Klein",
+    "options": {
+      "A": "phim kinh dị",
+      "B": "kịch",
+      "C": "ca nhạc",
+      "D": "hài"
+    },
+    "correct_answer": "A"
+  }
   ]
 }
