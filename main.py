@@ -354,11 +354,9 @@ class BattleView(discord.ui.View):
         self.stop()
 
 
-@bot.tree.command(name="battle", description="Đấu với người khác - ai hết máu trước thì thua!")
+@bot.tree.command(name="battle_qui_bi", description="Đấu với người khác - ai hết máu trước thì thua!")
 @app_commands.describe(
     opponent="Người bạn muốn thách đấu",
-    player1_name="Tên của bạn (tùy chọn)",
-    player2_name="Tên của đối thủ (tùy chọn)"
 )
 async def battle(
     interaction: discord.Interaction,
