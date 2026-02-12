@@ -9,7 +9,6 @@ import os
 # Config
 import os
 from dotenv import load_dotenv
-from keep_alive import keep_alive
 from battle_view import BattleView
 
 # Load environment variables
@@ -206,7 +205,6 @@ if __name__ == "__main__":
     else:
         print("🚀 Đang khởi động bot...")
         try:
-            keep_alive()
             bot.run(TOKEN)
         except discord.LoginFailure:
             print("❌ Lỗi đăng nhập: Token Discord không hợp lệ!")

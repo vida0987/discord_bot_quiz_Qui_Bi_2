@@ -212,12 +212,12 @@ class BattleView(discord.ui.View):
                   "💚 **Hồi máu:** Hồi 1d6 HP cho bản thân",
             inline=False
         )
-        embed.set_footer(text="⏰ Bạn có 10 giây để chọn, nếu không sẽ tự động chọn Đánh nhẹ")
+        embed.set_footer(text="⏰ Bạn có 20 giây để chọn, nếu không sẽ tự động chọn Đánh nhẹ")
 
         # Tạo custom View class để xử lý timeout
         class ActionView(discord.ui.View):
             def __init__(self, battle_view):
-                super().__init__(timeout=10)
+                super().__init__(timeout=20)
                 self.battle_view = battle_view
             
             async def on_timeout(self):
