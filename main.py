@@ -201,8 +201,9 @@ if __name__ == "__main__":
     else:
         print("🚀 Đang khởi động bot..." + (" [LOCAL]" if is_local else ""))
         try:
-            if not is_local:
-                keep_alive()
+            keep_alive()
+            # if not is_local:
+            #     keep_alive()
             bot.run(TOKEN)
         except discord.LoginFailure:
             print("❌ Lỗi đăng nhập: Token Discord không hợp lệ!")
