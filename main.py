@@ -192,7 +192,7 @@ async def battle(
 
 
 if __name__ == "__main__":
-    is_local = True
+    # is_local = True
 
     if not TOKEN:
         print("❌ Lỗi: Không tìm thấy DISCORD_TOKEN!")
