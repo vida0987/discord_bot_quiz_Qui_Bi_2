@@ -1,3 +1,4 @@
+import argparse
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -7,7 +8,6 @@ import json
 import os
 
 # Config
-import os
 from dotenv import load_dotenv
 from keep_alive import keep_alive
 from battle_view import BattleView
@@ -177,14 +177,7 @@ async def battle(
         title="⚔️ BATTLE BẮT ĐẦU ⚔️",
         description=f"**{p1_name}** vs **{p2_name}**\n\n"
                    f"💚 Mỗi người có **30 HP**\n"
-                   f"⚔️ Chọn hành động để tấn công đối thủ!\n\n"
-                   f"📋 **Các hành động:**\n"
-                   f"⚔️ Đánh nhẹ: 2d4 (2-8 sát thương)\n"
-                   f"🗡️ Đánh trung bình: 1d8 (1-8 sát thương)\n"
-                   f"💥 Đánh mạnh: 1d12 (1-12 sát thương) + tự nhận 1d4 (1-4 sát thương)\n"
-                   f"🛡️ Né: Tự mất 1 HP, né được đòn tấn công của đối thủ\n"
-                   f"🛡️ Đỡ: Chặn đánh nhẹ/trung bình, phản lại 1d4 (không chặn đánh mạnh)\n"
-                   f"💚 Hồi máu: Hồi 1d6 HP cho bản thân",
+                   f"🎲 Turn-based: đến lượt thì roll **1d6** gây sát thương cho đối thủ.",
         color=discord.Color.red()
     )
 
@@ -195,18 +188,21 @@ async def battle(
     battle_view.message = message
 
     # Bắt đầu lượt đầu tiên
-    await battle_view.send_action_buttons()
+    await battle_view.send_turn()
 
 
 if __name__ == "__main__":
+    is_local = True
+
     if not TOKEN:
         print("❌ Lỗi: Không tìm thấy DISCORD_TOKEN!")
         print("📝 Vui lòng tạo file .env và thêm DISCORD_TOKEN=your_token_here")
         print("📝 Hoặc cài đặt biến môi trường DISCORD_TOKEN")
     else:
-        print("🚀 Đang khởi động bot...")
+        print("🚀 Đang khởi động bot..." + (" [LOCAL]" if is_local else ""))
         try:
-            keep_alive()
+            if not is_local:
+                keep_alive()
             bot.run(TOKEN)
         except discord.LoginFailure:
             print("❌ Lỗi đăng nhập: Token Discord không hợp lệ!")

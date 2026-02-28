@@ -2,406 +2,225 @@ import discord
 import random
 
 
-# Class để quản lý battle với buttons
+# Battle: turn-based, mỗi lượt roll 6d6, được đổ lại (chọn viên) tối đa 2 lần, tổng = sát thương
 class BattleView(discord.ui.View):
     def __init__(self, player1, player2, player1_name, player2_name):
-        super().__init__(timeout=60)
+        super().__init__(timeout=90)
         self.player1 = player1
         self.player2 = player2
         self.player1_name = player1_name
         self.player2_name = player2_name
         self.player1_hp = 30
         self.player2_hp = 30
-        self.player1_action = None
-        self.player2_action = None
-        self.current_turn = 1  # 1 = player1, 2 = player2
-        self.battle_log = []
+        self.current_turn = 1
         self.message = None
-        self.action_message = None
 
-    async def check_both_ready(self):
-        if self.player1_action is not None and self.player2_action is not None:
-            # Disable buttons khi cả 2 đã chọn
-            if hasattr(self, 'action_message') and self.action_message:
-                for item in self.view.children:
-                    item.disabled = True
-                try:
-                    await self.action_message.edit(view=self.view)
-                except:
-                    pass  # Message có thể đã bị xóa hoặc không thể edit
-            await self.execute_round()
+    def _current_player(self):
+        return self.player1 if self.current_turn == 1 else self.player2
 
-    async def execute_round(self):
-        # Tính sát thương cho player1
-        damage1 = 0
-        if self.player1_action == "dodge":
-            # Né: tự mất 1 HP, không gây sát thương
-            self.player1_hp -= 1
-            action1_text = "Né (tự mất 1 HP, né được đòn tấn công)"
-            if self.player1_hp < 0:
-                self.player1_hp = 0
-        elif self.player1_action == "heal":
-            # Hồi máu: hồi 1d6 HP
-            heal1 = random.randint(1, 6)
-            old_hp = self.player1_hp
-            self.player1_hp += heal1
-            if self.player1_hp > 30:
-                self.player1_hp = 30
-            actual_heal = self.player1_hp - old_hp
-            action1_text = f"Hồi máu (1d6 = {heal1}, hồi được {actual_heal} HP)"
-        elif self.player1_action == "block":
-            # Đỡ: chặn đánh nhẹ và trung bình, phản lại 1d4
-            action1_text = "Đỡ (chặn đánh nhẹ/trung bình, phản lại 1d4)"
-        elif self.player1_action == "light":
-            damage1 = random.randint(1, 4) + random.randint(1, 4)
-            action1_text = f"Đánh nhẹ (2d4 = {damage1})"
-        elif self.player1_action == "medium":
-            damage1 = random.randint(1, 8)
-            action1_text = f"Đánh trung bình (1d8 = {damage1})"
-        else:  # heavy
-            damage1 = random.randint(1, 12)
-            recoil1 = random.randint(1, 4)
-            self.player1_hp -= recoil1
-            action1_text = f"Đánh mạnh (1d12 = {damage1}, tự nhận {recoil1} sát thương)"
-            if self.player1_hp < 0:
-                self.player1_hp = 0
+    def _current_name(self):
+        return self.player1_name if self.current_turn == 1 else self.player2_name
 
-        # Tính sát thương cho player2
-        damage2 = 0
-        if self.player2_action == "dodge":
-            # Né: tự mất 1 HP, không gây sát thương
-            self.player2_hp -= 1
-            action2_text = "Né (tự mất 1 HP, né được đòn tấn công)"
-            if self.player2_hp < 0:
-                self.player2_hp = 0
-        elif self.player2_action == "heal":
-            # Hồi máu: hồi 1d6 HP
-            heal2 = random.randint(1, 6)
-            old_hp = self.player2_hp
-            self.player2_hp += heal2
-            if self.player2_hp > 30:
-                self.player2_hp = 30
-            actual_heal = self.player2_hp - old_hp
-            action2_text = f"Hồi máu (1d6 = {heal2}, hồi được {actual_heal} HP)"
-        elif self.player2_action == "block":
-            # Đỡ: chặn đánh nhẹ và trung bình, phản lại 1d4
-            action2_text = "Đỡ (chặn đánh nhẹ/trung bình, phản lại 1d4)"
-        elif self.player2_action == "light":
-            damage2 = random.randint(1, 4) + random.randint(1, 4)
-            action2_text = f"Đánh nhẹ (2d4 = {damage2})"
-        elif self.player2_action == "medium":
-            damage2 = random.randint(1, 8)
-            action2_text = f"Đánh trung bình (1d8 = {damage2})"
-        else:  # heavy
-            damage2 = random.randint(1, 12)
-            recoil2 = random.randint(1, 4)
-            self.player2_hp -= recoil2
-            action2_text = f"Đánh mạnh (1d12 = {damage2}, tự nhận {recoil2} sát thương)"
-            if self.player2_hp < 0:
-                self.player2_hp = 0
+    def _opponent_hp_attr(self):
+        return "player2_hp" if self.current_turn == 1 else "player1_hp"
 
-        # Áp dụng sát thương với xử lý né, đỡ và hồi máu
-        dodge_info = ""
-        block_info = ""
-        
-        # Xử lý sát thương từ player1 đến player2
-        if self.player1_action != "heal" and self.player1_action != "block":
-            if self.player2_action == "dodge":
-                dodge_info += f"\n🛡️ **{self.player2_name}** đã né được đòn tấn công của **{self.player1_name}**!\n"
-            elif self.player2_action == "block":
-                # Đỡ: chặn đánh nhẹ và trung bình, không chặn đánh mạnh
-                if self.player1_action in ["light", "medium"]:
-                    # Chặn được, phản lại 1d4
-                    counter_damage = random.randint(1, 4)
-                    self.player1_hp -= counter_damage
-                    block_info += f"\n🛡️ **{self.player2_name}** đã đỡ được đòn tấn công của **{self.player1_name}** và phản lại {counter_damage} sát thương!\n"
-                    if self.player1_hp < 0:
-                        self.player1_hp = 0
-                else:
-                    # Đánh mạnh không bị chặn
-                    self.player2_hp -= damage1
-                    block_info += f"\n💥 **{self.player1_name}** đánh mạnh xuyên qua đỡ của **{self.player2_name}**!\n"
-            else:
-                # Không né, không đỡ
-                self.player2_hp -= damage1
-        
-        # Xử lý sát thương từ player2 đến player1
-        if self.player2_action != "heal" and self.player2_action != "block":
-            if self.player1_action == "dodge":
-                dodge_info += f"🛡️ **{self.player1_name}** đã né được đòn tấn công của **{self.player2_name}**!\n"
-            elif self.player1_action == "block":
-                # Đỡ: chặn đánh nhẹ và trung bình, không chặn đánh mạnh
-                if self.player2_action in ["light", "medium"]:
-                    # Chặn được, phản lại 1d4
-                    counter_damage = random.randint(1, 4)
-                    self.player2_hp -= counter_damage
-                    block_info += f"🛡️ **{self.player1_name}** đã đỡ được đòn tấn công của **{self.player2_name}** và phản lại {counter_damage} sát thương!\n"
-                    if self.player2_hp < 0:
-                        self.player2_hp = 0
-                else:
-                    # Đánh mạnh không bị chặn
-                    self.player1_hp -= damage2
-                    block_info += f"💥 **{self.player2_name}** đánh mạnh xuyên qua đỡ của **{self.player1_name}**!\n"
-            else:
-                # Không né, không đỡ
-                self.player1_hp -= damage2
-        
-        if self.player1_hp < 0:
-            self.player1_hp = 0
-        if self.player2_hp < 0:
-            self.player2_hp = 0
-
-        # Tạo embed kết quả lượt đánh
-        round_embed = discord.Embed(
-            title=f"⚔️ Lượt đánh #{self.current_turn}",
-            color=discord.Color.red()
-        )
-        round_embed.add_field(
-            name=f"👤 {self.player1_name}",
-            value=f"{action1_text}\n💚 HP: {self.player1_hp}/30",
-            inline=False
-        )
-        round_embed.add_field(
-            name=f"👤 {self.player2_name}",
-            value=f"{action2_text}\n💚 HP: {self.player2_hp}/30",
-            inline=False
-        )
-        if dodge_info:
-            round_embed.add_field(
-                name="🛡️ Thông tin né:",
-                value=dodge_info.strip(),
-                inline=False
-            )
-        if block_info:
-            round_embed.add_field(
-                name="🛡️ Thông tin đỡ:",
-                value=block_info.strip(),
-                inline=False
-            )
-
-        await self.message.channel.send(embed=round_embed)
-
-        # Kiểm tra kết thúc
-        if self.player1_hp <= 0 or self.player2_hp <= 0:
-            await self.end_battle()
-            return
-
-        # Reset actions và tiếp tục lượt tiếp theo
-        self.player1_action = None
-        self.player2_action = None
-        self.current_turn += 1
-
-        # Gửi buttons cho lượt tiếp theo
-        await self.send_action_buttons()
-
-    async def send_action_buttons(self):
+    async def send_turn(self):
         embed = discord.Embed(
-            title=f"⚔️ Lượt đánh #{self.current_turn} - Chọn hành động!",
-            description=f"**{self.player1_name}** vs **{self.player2_name}**\n\n"
-                       f"💚 **{self.player1_name}:** {self.player1_hp}/30 HP\n"
-                       f"💚 **{self.player2_name}:** {self.player2_hp}/30 HP",
-            color=discord.Color.orange()
+            title=f"⚔️ Lượt của **{self._current_name()}**",
+            description=f"💚 **{self.player1_name}:** {self.player1_hp}/30 HP\n"
+                       f"💚 **{self.player2_name}:** {self.player2_hp}/30 HP\n\n"
+                       f"🎲 Bấm **Roll 6d6** → được đổ lại viên tùy chọn **tối đa 2 lần**, tổng = sát thương.",
+            color=discord.Color.orange(),
         )
-        embed.add_field(
-            name="📋 Hành động:",
-            value="⚔️ **Đánh nhẹ:** 2d4 (2-8 sát thương)\n"
-                  "🗡️ **Đánh trung bình:** 1d8 (1-8 sát thương)\n"
-                  "💥 **Đánh mạnh:** 1d12 (1-12 sát thương) + tự nhận 1d4 (1-4 sát thương)\n"
-                  "🛡️ **Né:** Tự mất 1 HP, né được đòn tấn công của đối thủ\n"
-                  "🛡️ **Đỡ:** Chặn đánh nhẹ/trung bình, phản lại 1d4 (không chặn đánh mạnh)\n"
-                  "💚 **Hồi máu:** Hồi 1d6 HP cho bản thân",
-            inline=False
-        )
-        embed.set_footer(text="⏰ Bạn có 20 giây để chọn, nếu không sẽ tự động chọn Đánh nhẹ")
+        embed.set_footer(text="⏰ 90 giây để thực hiện lượt")
 
-        # Tạo custom View class để xử lý timeout
-        class ActionView(discord.ui.View):
+        class RollStartView(discord.ui.View):
             def __init__(self, battle_view):
-                super().__init__(timeout=20)
+                super().__init__(timeout=90)
                 self.battle_view = battle_view
-            
+
+            @discord.ui.button(label="🎲 Roll 6d6", style=discord.ButtonStyle.primary)
+            async def roll_btn(self, interaction: discord.Interaction, button: discord.ui.Button):
+                if interaction.user != self.battle_view._current_player():
+                    await interaction.response.send_message("❌ Không phải lượt của bạn!", ephemeral=True)
+                    return
+                dice = [random.randint(1, 6) for _ in range(6)]
+                emb, view = _dice_embed_and_view(self.battle_view, dice, re_rolls_left=2, marked=set())
+                await interaction.response.edit_message(embed=emb, view=view)
+                view.message = interaction.message
+
             async def on_timeout(self):
-                # Tự động chọn "đánh nhẹ" cho người chơi chưa chọn
-                auto_selected = []
-                if self.battle_view.player1_action is None:
-                    self.battle_view.player1_action = "light"
-                    auto_selected.append(self.battle_view.player1_name)
-                if self.battle_view.player2_action is None:
-                    self.battle_view.player2_action = "light"
-                    auto_selected.append(self.battle_view.player2_name)
-                
-                # Disable buttons
                 for item in self.children:
                     item.disabled = True
-                
-                # Edit message để disable buttons
-                if hasattr(self.battle_view, 'action_message') and self.battle_view.action_message:
+                try:
+                    await self.message.edit(view=self)
+                except Exception:
+                    pass
+                await self.battle_view.message.channel.send(
+                    f"⏰ **{self.battle_view._current_name()}** hết thời gian, mất lượt!"
+                )
+                self.battle_view.current_turn = 2 if self.battle_view.current_turn == 1 else 1
+                await self.battle_view.send_turn()
+
+        def _dice_embed_and_view(bv, dice, re_rolls_left, marked):
+            total = sum(dice)
+            desc = (
+                f"💚 **{bv.player1_name}:** {bv.player1_hp}/30 HP\n"
+                f"💚 **{bv.player2_name}:** {bv.player2_hp}/30 HP\n\n"
+                f"🎲 **6 súc sắc:** {' | '.join(str(d) for d in dice)} → **Tổng = {total}** sát thương\n"
+                f"🔄 Đổ lại còn: **{re_rolls_left}** lần. Chọn viên (bấm nút) rồi bấm **Đổ lại**."
+            )
+            if marked:
+                desc += f"\nĐã chọn đổ lại: viên số {', '.join(str(i+1) for i in sorted(marked))}."
+            emb = discord.Embed(
+                title=f"⚔️ Lượt của **{bv._current_name()}**",
+                description=desc,
+                color=discord.Color.orange(),
+            )
+            emb.set_footer(text="⏰ 90 giây")
+
+            class DiceActionView(discord.ui.View):
+                def __init__(self, battle_view, dice_list, rerolls, marked_set):
+                    super().__init__(timeout=90)
+                    self.battle_view = battle_view
+                    self.dice = list(dice_list)
+                    self.re_rolls_left = rerolls
+                    self.marked = set(marked_set)
+
+                async def _refresh(self, interaction: discord.Interaction, new_dice=None, new_rerolls=None, new_marked=None):
+                    if new_dice is not None:
+                        self.dice = new_dice
+                    if new_rerolls is not None:
+                        self.re_rolls_left = new_rerolls
+                    if new_marked is not None:
+                        self.marked = new_marked
+                    emb2, view2 = _dice_embed_and_view(self.battle_view, self.dice, self.re_rolls_left, self.marked)
+                    await interaction.response.edit_message(embed=emb2, view=view2)
+                    view2.message = interaction.message
+
+                async def toggle_die(self, interaction: discord.Interaction, index: int):
+                    if interaction.user != self.battle_view._current_player():
+                        await interaction.response.send_message("❌ Không phải lượt của bạn!", ephemeral=True)
+                        return
+                    if index in self.marked:
+                        self.marked.discard(index)
+                    else:
+                        self.marked.add(index)
+                    emb2, view2 = _dice_embed_and_view(self.battle_view, self.dice, self.re_rolls_left, self.marked)
+                    await interaction.response.edit_message(embed=emb2, view=view2)
+                    view2.message = interaction.message
+
+                async def do_reroll(self, interaction: discord.Interaction):
+                    if interaction.user != self.battle_view._current_player():
+                        await interaction.response.send_message("❌ Không phải lượt của bạn!", ephemeral=True)
+                        return
+                    if self.re_rolls_left <= 0:
+                        await interaction.response.send_message("❌ Đã hết 2 lần đổ lại!", ephemeral=True)
+                        return
+                    if not self.marked:
+                        await interaction.response.send_message("❌ Chọn ít nhất 1 viên để đổ lại (bấm vào số viên đó).", ephemeral=True)
+                        return
+                    new_dice = list(self.dice)
+                    for i in self.marked:
+                        new_dice[i] = random.randint(1, 6)
+                    await self._refresh(interaction, new_dice=new_dice, new_rerolls=self.re_rolls_left - 1, new_marked=set())
+
+                async def do_damage(self, interaction: discord.Interaction):
+                    if interaction.user != self.battle_view._current_player():
+                        await interaction.response.send_message("❌ Không phải lượt của bạn!", ephemeral=True)
+                        return
+                    total = sum(self.dice)
+                    opp_attr = self.battle_view._opponent_hp_attr()
+                    current = getattr(self.battle_view, opp_attr) - total
+                    if current < 0:
+                        current = 0
+                    setattr(self.battle_view, opp_attr, current)
+                    opp_name = self.battle_view.player2_name if self.battle_view.current_turn == 1 else self.battle_view.player1_name
+                    await interaction.response.send_message(
+                        f"🎲 **{self.battle_view._current_name()}** 6d6 = **{self.dice}** → Tổng **{total}** sát thương! "
+                        f"**{opp_name}** còn {current}/30 HP.",
+                        ephemeral=False,
+                    )
+                    if getattr(self.battle_view, opp_attr) <= 0:
+                        await self.battle_view.end_battle()
+                        return
+                    self.battle_view.current_turn = 2 if self.battle_view.current_turn == 1 else 1
+                    for item in self.children:
+                        item.disabled = True
                     try:
-                        await self.battle_view.action_message.edit(view=self)
-                    except:
+                        await interaction.message.edit(view=self)
+                    except Exception:
                         pass
-                
-                # Thông báo nếu có người chơi tự động chọn
-                if auto_selected:
-                    timeout_msg = f"⏰ Hết thời gian! Tự động chọn **Đánh nhẹ** cho: {', '.join(auto_selected)}"
-                    await self.battle_view.message.channel.send(timeout_msg)
-                
-                # Kiểm tra nếu cả 2 đã chọn thì thực hiện lượt đánh
-                await self.battle_view.check_both_ready()
+                    await self.battle_view.send_turn()
 
-        view = ActionView(self)
-        
-        async def light_attack_callback(interaction: discord.Interaction):
-            if interaction.user == self.player1 and self.player1_action is None:
-                self.player1_action = "light"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đánh nhẹ** (2d4)", ephemeral=True)
-            elif interaction.user == self.player2 and self.player2_action is None:
-                self.player2_action = "light"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đánh nhẹ** (2d4)", ephemeral=True)
-            else:
-                if interaction.user not in [self.player1, self.player2]:
-                    await interaction.response.send_message("❌ Bạn không phải người chơi trong battle này!", ephemeral=True)
-                else:
-                    await interaction.response.send_message("❌ Bạn đã chọn hành động rồi!", ephemeral=True)
-                return
-            
-            await self.check_both_ready()
+                async def on_timeout(self):
+                    for item in self.children:
+                        item.disabled = True
+                    try:
+                        await self.message.edit(view=self)
+                    except Exception:
+                        pass
+                    await self.battle_view.message.channel.send(
+                        f"⏰ **{self.battle_view._current_name()}** hết thời gian, mất lượt!"
+                    )
+                    self.battle_view.current_turn = 2 if self.battle_view.current_turn == 1 else 1
+                    await self.battle_view.send_turn()
 
-        async def medium_attack_callback(interaction: discord.Interaction):
-            if interaction.user == self.player1 and self.player1_action is None:
-                self.player1_action = "medium"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đánh trung bình** (1d8)", ephemeral=True)
-            elif interaction.user == self.player2 and self.player2_action is None:
-                self.player2_action = "medium"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đánh trung bình** (1d8)", ephemeral=True)
-            else:
-                if interaction.user not in [self.player1, self.player2]:
-                    await interaction.response.send_message("❌ Bạn không phải người chơi trong battle này!", ephemeral=True)
-                else:
-                    await interaction.response.send_message("❌ Bạn đã chọn hành động rồi!", ephemeral=True)
-                return
-            
-            await self.check_both_ready()
+            view = DiceActionView(bv, dice, re_rolls_left, marked)
+            for i in range(6):
+                label = f"🎲 {dice[i]}"
+                if i in marked:
+                    label += " ✓"
+                btn = discord.ui.Button(
+                    label=label,
+                    style=discord.ButtonStyle.secondary if i in marked else discord.ButtonStyle.primary,
+                    custom_id=f"die_{i}",
+                )
+                idx = i
+                btn.callback = lambda inter, i=idx: view.toggle_die(inter, i)
+                view.add_item(btn)
+            reroll_btn = discord.ui.Button(
+                label="🔄 Đổ lại (đã chọn)",
+                style=discord.ButtonStyle.primary,
+                custom_id="reroll",
+            )
+            reroll_btn.callback = view.do_reroll
+            view.add_item(reroll_btn)
+            deal_btn = discord.ui.Button(
+                label="⚔️ Gây sát thương",
+                style=discord.ButtonStyle.danger,
+                custom_id="deal",
+            )
+            deal_btn.callback = view.do_damage
+            view.add_item(deal_btn)
+            return emb, view
 
-        async def heavy_attack_callback(interaction: discord.Interaction):
-            if interaction.user == self.player1 and self.player1_action is None:
-                self.player1_action = "heavy"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đánh mạnh** (1d12 + tự nhận 1d4)", ephemeral=True)
-            elif interaction.user == self.player2 and self.player2_action is None:
-                self.player2_action = "heavy"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đánh mạnh** (1d12 + tự nhận 1d4)", ephemeral=True)
-            else:
-                if interaction.user not in [self.player1, self.player2]:
-                    await interaction.response.send_message("❌ Bạn không phải người chơi trong battle này!", ephemeral=True)
-                else:
-                    await interaction.response.send_message("❌ Bạn đã chọn hành động rồi!", ephemeral=True)
-                return
-            
-            await self.check_both_ready()
-
-        async def dodge_callback(interaction: discord.Interaction):
-            if interaction.user == self.player1 and self.player1_action is None:
-                self.player1_action = "dodge"
-                await interaction.response.send_message("✅ Bạn đã chọn **Né** (tự mất 1 HP, né được đòn tấn công)", ephemeral=True)
-            elif interaction.user == self.player2 and self.player2_action is None:
-                self.player2_action = "dodge"
-                await interaction.response.send_message("✅ Bạn đã chọn **Né** (tự mất 1 HP, né được đòn tấn công)", ephemeral=True)
-            else:
-                if interaction.user not in [self.player1, self.player2]:
-                    await interaction.response.send_message("❌ Bạn không phải người chơi trong battle này!", ephemeral=True)
-                else:
-                    await interaction.response.send_message("❌ Bạn đã chọn hành động rồi!", ephemeral=True)
-                return
-            
-            await self.check_both_ready()
-
-        async def heal_callback(interaction: discord.Interaction):
-            if interaction.user == self.player1 and self.player1_action is None:
-                self.player1_action = "heal"
-                await interaction.response.send_message("✅ Bạn đã chọn **Hồi máu** (1d6 HP)", ephemeral=True)
-            elif interaction.user == self.player2 and self.player2_action is None:
-                self.player2_action = "heal"
-                await interaction.response.send_message("✅ Bạn đã chọn **Hồi máu** (1d6 HP)", ephemeral=True)
-            else:
-                if interaction.user not in [self.player1, self.player2]:
-                    await interaction.response.send_message("❌ Bạn không phải người chơi trong battle này!", ephemeral=True)
-                else:
-                    await interaction.response.send_message("❌ Bạn đã chọn hành động rồi!", ephemeral=True)
-                return
-            
-            await self.check_both_ready()
-
-        async def block_callback(interaction: discord.Interaction):
-            if interaction.user == self.player1 and self.player1_action is None:
-                self.player1_action = "block"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đỡ** (chặn đánh nhẹ/trung bình, phản lại 1d4)", ephemeral=True)
-            elif interaction.user == self.player2 and self.player2_action is None:
-                self.player2_action = "block"
-                await interaction.response.send_message("✅ Bạn đã chọn **Đỡ** (chặn đánh nhẹ/trung bình, phản lại 1d4)", ephemeral=True)
-            else:
-                if interaction.user not in [self.player1, self.player2]:
-                    await interaction.response.send_message("❌ Bạn không phải người chơi trong battle này!", ephemeral=True)
-                else:
-                    await interaction.response.send_message("❌ Bạn đã chọn hành động rồi!", ephemeral=True)
-                return
-            
-            await self.check_both_ready()
-
-        light_btn = discord.ui.Button(label="⚔️ Đánh nhẹ (2d4)", style=discord.ButtonStyle.primary)
-        light_btn.callback = light_attack_callback
-        view.add_item(light_btn)
-
-        medium_btn = discord.ui.Button(label="🗡️ Đánh trung bình (1d8)", style=discord.ButtonStyle.success)
-        medium_btn.callback = medium_attack_callback
-        view.add_item(medium_btn)
-
-        heavy_btn = discord.ui.Button(label="💥 Đánh mạnh (1d12 + tự nhận 1d4)", style=discord.ButtonStyle.danger)
-        heavy_btn.callback = heavy_attack_callback
-        view.add_item(heavy_btn)
-
-        dodge_btn = discord.ui.Button(label="🛡️ Né (tự mất 1 HP)", style=discord.ButtonStyle.secondary)
-        dodge_btn.callback = dodge_callback
-        view.add_item(dodge_btn)
-
-        block_btn = discord.ui.Button(label="🛡️ Đỡ (phản lại 1d4)", style=discord.ButtonStyle.secondary)
-        block_btn.callback = block_callback
-        view.add_item(block_btn)
-
-        heal_btn = discord.ui.Button(label="💚 Hồi máu (1d6)", style=discord.ButtonStyle.primary)
-        heal_btn.callback = heal_callback
-        view.add_item(heal_btn)
-
-        self.view = view
-        action_message = await self.message.channel.send(embed=embed, view=view)
-        self.action_message = action_message
+        roll_view = RollStartView(self)
+        roll_view.message = await self.message.channel.send(embed=embed, view=roll_view)
 
     async def end_battle(self):
         winner_embed = discord.Embed(
             title="🏆 KẾT QUẢ BATTLE 🏆",
-            color=discord.Color.gold()
+            color=discord.Color.gold(),
         )
-
         if self.player1_hp <= 0 and self.player2_hp <= 0:
-            winner_embed.description = "🤝 Hòa! Cả 2 đều hết máu cùng lúc! 🤝"
+            winner_embed.description = "🤝 Hòa! Cả 2 đều hết máu! 🤝"
             winner_embed.color = discord.Color.blue()
         elif self.player1_hp <= 0:
-            winner_embed.description = f"🎉 **{self.player2_name}** là người chiến thắng! 🎉"
+            winner_embed.description = f"🎉 **{self.player2_name}** thắng! 🎉"
             winner_embed.color = discord.Color.green()
-        elif self.player2_hp <= 0:
-            winner_embed.description = f"🎉 **{self.player1_name}** là người chiến thắng! 🎉"
+        else:
+            winner_embed.description = f"🎉 **{self.player1_name}** thắng! 🎉"
             winner_embed.color = discord.Color.green()
-
         winner_embed.add_field(
             name=f"👤 {self.player1_name}",
             value=f"💚 HP: {self.player1_hp}/30",
-            inline=True
+            inline=True,
         )
         winner_embed.add_field(
             name=f"👤 {self.player2_name}",
             value=f"💚 HP: {self.player2_hp}/30",
-            inline=True
+            inline=True,
         )
-
         await self.message.channel.send(embed=winner_embed)
         self.stop()
-
