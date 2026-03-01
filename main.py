@@ -177,7 +177,7 @@ async def battle(
         title="⚔️ BATTLE BẮT ĐẦU ⚔️",
         description=f"**{p1_name}** vs **{p2_name}**\n\n"
                    f"💚 Mỗi người có **30 HP**\n"
-                   f"🎲 Turn-based: đến lượt thì roll **1d6** gây sát thương cho đối thủ.",
+                   f"🎲 30 HP + 5 tinh thần. Mỗi lượt roll **5d6** (6 mặt có hiệu ứng khác nhau, đổ lại tối đa 2 lần). Combo 5 khác / 3 giống. Hết tinh thần = 3 sát thương + mất lượt.",
         color=discord.Color.red()
     )
 
