@@ -199,7 +199,8 @@ if __name__ == "__main__":
         print("📝 Vui lòng tạo file .env và thêm DISCORD_TOKEN=your_token_here")
         print("📝 Hoặc cài đặt biến môi trường DISCORD_TOKEN")
     else:
-        print("🚀 Đang khởi động bot..."
+        print("🚀 Đang khởi động bot...")
+        try:
             keep_alive()
             # if not is_local:
             #     keep_alive()
